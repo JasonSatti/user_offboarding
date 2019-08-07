@@ -1,4 +1,4 @@
-# User_Offboarding
+# user_offboarding
 GAM User Offboarding Script
 
 # Flags
