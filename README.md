@@ -17,7 +17,8 @@ bash offboarding.sh -e email@company.com -t V|I
 ## Notes
 Slack Deprovision and Update Jamf Device commented out
 
-Slack Deprovision Script and Update Jamf Device script can be found in these repos:
+Slack Deprovision script found here:
 https://github.com/JasonSatti/Deprovision_Slack_User
 
+Update Jamf Device script found here:
 https://github.com/JasonSatti/Update_Jamf_Device
