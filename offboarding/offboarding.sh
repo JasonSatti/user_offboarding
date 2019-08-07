@@ -31,8 +31,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 
 # Verify user exists in Google Suite
 email_verification() {
-    ${GAM} info user "${EMPLOYEE}" >/dev/null 2>&1
-    if [[ $? == "0" ]]; then
+    if ${GAM} info user "${EMPLOYEE}" >/dev/null 2>&1; then
         return
     else
         echo "$EMPLOYEE does not exist in Google Suite."
