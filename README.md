@@ -19,4 +19,5 @@ Slack Deprovision and Update Jamf Device commented out
 
 Slack Deprovision Script and Update Jamf Device script can be found in these repos:
 https://github.com/JasonSatti/Deprovision_Slack_User
+
 https://github.com/JasonSatti/Update_Jamf_Device
