@@ -140,17 +140,19 @@ remove_groups() {
 }
 
 # Delegate email access to manager if termination is Involuntary
-# Suspend user if the termination is Voluntary
+# Suspend user to kick off all logged in sessions
+# Unsuspend Involuntary termination user for email delgation
 # Verify that user was moved to correct Organizational Unit
 suspend_user() {
+    ${GAM} update user "${EMPLOYEE}" suspended on
     if [ "$TERMTYPE" = 'Involuntary' ]; then
         echo "Granting delegate access to employee manager and moving to Involuntary Terminations OU"
+        ${GAM} update user "${EMPLOYEE}" suspended off
         ${GAM} user "${EMPLOYEE}" delegate to "${MANAGER}"
         ${GAM} update org 'Involuntary Terminations' add users "${EMPLOYEE}"
     else
         echo "Suspending user and moving to Voluntary Terminations OU"
         ${GAM} update org 'Voluntary Terminations' add users "${EMPLOYEE}"
-        ${GAM} update user "${EMPLOYEE}" suspended on
     fi
     ORG_UNIT=$(${GAM} info user "${EMPLOYEE}" | grep "Google Org")
     echo "$EMPLOYEE moved to $ORG_UNIT"
