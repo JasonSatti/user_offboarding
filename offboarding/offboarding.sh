@@ -100,6 +100,13 @@ remove_delegates() {
     done
 }
 
+# Wipe device profile and remove Google accounts from all mobile devices
+wipe_devices() {
+    echo "Wiping all associated mobile devices"
+    $GAM print mobile query "email:$EMPLOYEE" >>/tmp/tmp.mobile-data.csv
+    $GAM csv /tmp/tmp.mobile-data.csv gam update mobile ~resourceId action account_wipe
+}
+
 # Remove all forwarding addresses
 # Disable IMAP
 # Disable POP
@@ -169,6 +176,7 @@ get_name
 reset_password
 reset_token
 remove_delegates
+wipe_devices
 disable_user
 transfer_drive
 remove_groups
