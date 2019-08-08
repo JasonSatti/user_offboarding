@@ -161,7 +161,7 @@ suspend_user() {
 #    python3 Update_Jamf_Device.py --l "$LAST_NAME" -s 'TERMED'
 #}
 
-## Main
+# Main
 start_logger
 email_verification
 term_type
